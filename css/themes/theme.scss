@@ -1,0 +1,210 @@
+/*=======================================
+Template Design By MarkUps.
+Author URI : http://www.markups.io/
+========================================*/
+@import '_consts';
+
+a {
+  color: $theme-color;
+}
+
+.navbar-fixed nav {
+  background-color: $theme-color;
+}
+
+.side-nav li:hover {
+  background-color: $theme-color;
+}
+.btn,
+.btn-large {
+  background-color: $theme-color;
+}
+.btn:hover,
+.btn-large:hover {
+  background-color: $theme-color;
+}
+.home-title span {
+  color: $theme-color;
+}
+.about-inner-right > h3 {
+  color: $theme-color;
+}
+.personal-information > h3 {
+  color: $theme-color;
+}
+.title {
+  color: $theme-color;
+}
+
+.card-subtitle {
+  color: $theme-color;
+}
+.portfolio-top {
+  background-color: $theme-color;
+}
+.filter {
+  color: $theme-color;
+}
+.filter:focus {
+  background-color: $theme-color;
+}
+#portfolio-list .mix:hover > a::before {
+  background-color: $theme-color;
+}
+.counter {
+  color: $theme-color;
+}
+
+.pro-bar-container.color-wisteria {
+  border-color: $theme-color;
+}
+
+.pro-bar.color-amethyst {
+  background-color: $theme-color;
+}
+.call-to-about i {
+  color: $theme-color;
+}
+
+.blog-post .card-action a {
+  color: $theme-color;
+}
+
+.post-comment:hover {
+  color: $theme-color !important;
+}
+
+.readmore-btn:hover {
+  background-color: $theme-color;
+}
+#experience {
+  background-color: $theme-color;
+}
+
+.card-title i {
+  color: $theme-color;
+}
+.customNavigation i {
+  color: $theme-color;
+}
+#testimonial {
+  background-color: $theme-color;
+}
+.testimonial-content h3 {
+  color: $theme-color;
+}
+.footer-top {
+  background-color: $theme-color;
+}
+input[type='text']:focus:not([readonly]) + label,
+input[type='password']:focus:not([readonly]) + label,
+input[type='email']:focus:not([readonly]) + label,
+input[type='url']:focus:not([readonly]) + label,
+input[type='time']:focus:not([readonly]) + label,
+input[type='date']:focus:not([readonly]) + label,
+input[type='datetime-local']:focus:not([readonly]) + label,
+input[type='tel']:focus:not([readonly]) + label,
+input[type='number']:focus:not([readonly]) + label,
+input[type='search']:focus:not([readonly]) + label,
+textarea.materialize-textarea:focus:not([readonly]) + label {
+  color: $theme-color;
+}
+input[type='text']:focus:not([readonly]),
+input[type='password']:focus:not([readonly]),
+input[type='email']:focus:not([readonly]),
+input[type='url']:focus:not([readonly]),
+input[type='time']:focus:not([readonly]),
+input[type='date']:focus:not([readonly]),
+input[type='datetime-local']:focus:not([readonly]),
+input[type='tel']:focus:not([readonly]),
+input[type='number']:focus:not([readonly]),
+input[type='search']:focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid $theme-color;
+  box-shadow: 0 1px 0 0 $theme-color;
+}
+.submit-btn {
+  color: $theme-color;
+  &:hover,
+  &:focus {
+    background-color: $theme-color;
+  }
+}
+.overlay-header {
+  background-color: $theme-color;
+}
+.blog-content {
+  blockquote {
+    border-left: 5px solid $theme-color;
+  }
+}
+.tag-area {
+  h4 {
+    i {
+      color: $theme-color;
+    }
+  }
+}
+
+.share-area {
+  a {
+    &:hover,
+    &:focus {
+      color: $theme-color;
+    }
+  }
+  h4 {
+    i {
+      color: $theme-color;
+    }
+  }
+}
+.author-comments {
+  background-color: $theme-color !important;
+}
+.reply-btn:hover {
+  background-color: $theme-color;
+}
+.pagination li.active {
+  background-color: $theme-color;
+}
+.card .card-action a {
+  color: $theme-color;
+}
+.tagcloud {
+  a {
+    &:hover,
+    &:focus {
+      color: #fff;
+      background-color: $theme-color;
+      border-color: $theme-color;
+    }
+  }
+}
+
+.prev-post,
+.next-post {
+  &:hover,
+  &:focus {
+    background-color: $theme-color;
+  }
+}
+.submit-btn {
+  color: $theme-color;
+}
+.side-nav {
+  li {
+    &:hover,
+    &:active {
+      background-color: $theme-color;
+    }
+  }
+}
+.progress .indeterminate {
+  background-color: $theme-color;
+}
+
+/*=======================================
+  Template Design By MarkUps.
+  Author URI : http://www.markups.io/
+  ========================================*/
