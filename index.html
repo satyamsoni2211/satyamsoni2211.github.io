@@ -71,18 +71,12 @@
               <ul class="right hide-on-med-and-down custom-nav menu-scroll">
                 <li><a href="#about">About Me</a></li>
                 <li><a href="#resume">Resume</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#testimonial">Testimonial</a></li>
-                <li><a href="#blog">Blog</a></li>
                 <li><a href="#footer">Contact</a></li>
               </ul>
               <!-- For Mobile View -->
               <ul id="slide-out" class="side-nav menu-scroll">
                 <li><a href="#about">About Me</a></li>
                 <li><a href="#resume">Resume</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#testimonial">Testimonial</a></li>
-                <li><a href="#blog">Blog</a></li>
                 <li><a href="#footer">Contact</a></li>
               </ul>
               <a href="#" data-activates="slide-out" class="button-collapse"
@@ -99,6 +93,15 @@
         <section id="home">
           <div class="overlay-section">
             <div class="container">
+              <div class="row right">
+                <div class="col s12">
+                    <p id="theme-changer">Magic happens here ! CLick to toggle theme !
+                        <a class="btn-floating btn-large waves-effect waves-light red"
+                        onclick="toggleTheme()">
+                            <i class="material-icons">add_to_queue</i></a>
+                    </p>
+                </div>
+              </div>
               <div class="row">
                 <div class="col s12">
                   <div class="home-inner">
@@ -541,19 +544,16 @@
                 <div class="col s12">
                   <div class="footer-top-inner">
                     <h2 class="title">Contact</h2>
-                    <p>
-                      If you wish to contact me, Fill in the below form !
-                    </p>
                     <div class="contact">
                       <div class="row">
                         <div class="col s12 m12 l12">
                           <div class="contact-form">
-                            <form action="mail_handler.php" method="POST">
+                            <form id="myform">
                               <div class="input-field">
                                 <input
                                   type="text"
                                   class="input-box"
-                                  name="contactName"
+                                  name="from_name"
                                   id="contact-name"
                                 />
                                 <label class="input-label" for="contact-name"
@@ -564,28 +564,17 @@
                                 <input
                                   type="email"
                                   class="input-box"
-                                  name="contactEmail"
+                                  name="from_email"
                                   id="email"
                                 />
                                 <label class="input-label" for="email"
                                   >Email</label
                                 >
                               </div>
-                              <div class="input-field">
-                                <input
-                                  type="text"
-                                  class="input-box"
-                                  name="contactSubject"
-                                  id="subject"
-                                />
-                                <label class="input-label" for="subject"
-                                  >Subject</label
-                                >
-                              </div>
                               <div class="input-field textarea-input">
                                 <textarea
                                   class="materialize-textarea"
-                                  name="contactMessage"
+                                  name="message_html"
                                   id="textarea1"
                                 ></textarea>
                                 <label class="input-label" for="textarea1"
@@ -606,6 +595,21 @@
                   </div>
                 </div>
               </div>
+            </div>
+            <div class="row footer_description">
+              <div class="col s12 m6 l6">
+                  developed by &copy; Satyam Soni 
+                  <a href="mailto:satyamsoni@hotmail.co.uk"
+                  style="cursor: pointer;"><i class="fas fa-mail-bulk white-text"></i></a>
+              </div>
+                <div class="col offset-m2 offset-l2 s12 m2 l2 logo-wrapper">
+                    <a href="https://github.com/satyamsoni2211" class="right">
+                        <i class="fab fa-github white-text small"></i>
+                    </a>
+                    <a href="www.linkedin.com/in/satyam-soni-ba648192" class="right">
+                        <i class="fab fa-linkedin-in white-text small"></i>
+                    </a>
+                </div>
             </div>
           </div>
           <!-- Start Footer Bottom -->
@@ -646,6 +650,54 @@
 
     <!-- Custom Js -->
     <script src="js/custom.js"></script>
-    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/2c227351905c85c000ca72f77/957656da8b823990b7e49daf6.js");</script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.2.4/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("user_EzSOyhYljdIbpQlR5jcLv");
+   })();
+</script>
+    <script>
+      function toggleTheme() {
+        const theme = document.getElementById('switcher');
+        const choices = ['blue-theme.css',
+                        'dark-red-theme.css',
+                        'green-theme.css',
+                        'new_theme.css',
+                        'pink-theme.css',
+                        'yellow-theme.css',
+                        'bridge-theme.css',
+                        'default-theme.css',
+                        'lite-blue-theme.css',
+                        'orange-theme.css',
+                        'red-theme.css'];
+        const index = Math.floor(Math.random() * choices.length);
+        theme.href = `css/themes/${choices[index]}`;
+      }
+      const myform = $("form#myform");
+      myform.submit(function(event){
+        event.preventDefault();
+
+        const params = myform.serializeArray().reduce(function(obj, item) {
+          obj[item.name] = item.value;
+          return obj;
+        }, {});
+
+        // Change to your service ID, or keep using the default service
+        const service_id = "default_service";
+
+        const template_id = "template_gcrJVmCj";
+        myform.find("button").text("Sending...");
+        emailjs.send(service_id,template_id,params)
+          .then(function(){ 
+            // alert("Sent!");
+            Materialize.toast('Email Sent!');
+            myform.find("button").text("Send");
+          }, function(err) {
+            Materialize.toast("Send email failed!\r\n Response:\n " + JSON.stringify(err));
+            myform.find("button").text("Send");
+          });
+        return false;
+      });
+    </script>
   </body>
 </html>
